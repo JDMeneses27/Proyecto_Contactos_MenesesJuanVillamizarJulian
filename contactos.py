@@ -27,6 +27,10 @@ def menu_principal():
             case "1":
                 while True:
                     agregar_contactos()
+            case "3":
+                while True:
+                    nombre = get_nombre()
+                    eliminar_contactos(file_path, nombre)
             
 
 
