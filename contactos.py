@@ -37,5 +37,62 @@ def agregar_contactos():
           ╚════════════════════════════════════════════════════════╝
               """)
         print("")
+        nombre = get_nombre()
+        telefono = get_telefono()
+        correo = get_correo()
+        direccion = get_direccion()
+
+        contacto = {
+            "nombre":nombre,
+            "telefono":telefono,
+            "correo":correo,
+            "direccion":direccion
+        }
+        guardar_contacto(contacto)
+
         
-        
+
+def get_nombre():
+    try:
+        while True:
+            nombre = input("""
+                           ║Ingrese el nombre del contacto: ║
+                           """)
+            if validar_nombre(nombre):
+                return nombre
+    except ValueError:
+        "Error consiguiendo el nombre"
+
+def get_telefono():
+    try:
+        while True:
+            telefono = int(input("""
+                                 ║Ingrese el numero telefonico del contacto: ║
+                                 """))
+            if validar_telefono(telefono):
+                return telefono
+    except ValueError:
+        "Error consiguiendo el telefono"
+
+def get_correo():
+    try:
+        while True:
+            correo = input("""
+                           ║Ingrese el correo del contacto: ║
+                           """)
+            if validar_correo(correo):
+                return correo
+    except ValueError:
+        "Error consiguiendo el correo"
+
+
+def get_direccion():
+    try:
+        while True:
+            direccion = input("""
+                              ║Ingrese el correo del contacto: ║
+                              """)
+            if validar_direccion(direccion):
+                return direccion
+    except ValueError:
+        "Error consiguiendo el direccion"
