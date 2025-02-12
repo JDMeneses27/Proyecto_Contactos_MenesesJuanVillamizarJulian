@@ -108,3 +108,19 @@ def get_direccion():
                 return direccion
     except ValueError:
         "Error consiguiendo el direccion"
+
+
+def eliminar_contactos(file_path, nombre):
+    try:
+        contactos = findAll(file_path)
+        contador_inicial = len(contactos)
+        contactos = [contacto for contacto in contactos if contacto["nombre"] != nombre]
+        if len(contactos) == contador_inicial:
+            print("No se encontró el contacto a eliminar")
+            return False
+        saveAll(contactos, file_path)
+        print(f"Contacto {nombre} eliminado")
+        return True
+    except ValueError:
+        print("ERROR AL ELIMINAR EL CONTACTO")
+
