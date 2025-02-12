@@ -1,3 +1,8 @@
+from utils import validar_nombre, validar_telefono, validar_correo, validar_direccion, findAll, saveAll
+
+file_path = "./data/contactos.json"
+
+
 def menu_principal():
     while True:
         print("""
@@ -48,7 +53,10 @@ def agregar_contactos():
             "correo":correo,
             "direccion":direccion
         }
-        guardar_contacto(contacto)
+
+        contactos = findAll(file_path)
+        contactos.append(contacto)
+        saveAll(contactos, file_path)
 
         
 
@@ -58,7 +66,7 @@ def get_nombre():
             nombre = input("""
                            ║Ingrese el nombre del contacto: ║
                            """)
-            if validar_nombre(nombre):
+            if validar_nombre(nombre) == True:
                 return nombre
     except ValueError:
         "Error consiguiendo el nombre"
@@ -67,9 +75,9 @@ def get_telefono():
     try:
         while True:
             telefono = int(input("""
-                                 ║Ingrese el numero telefonico del contacto: ║
+                            ║Ingrese el numero telefonico del contacto: ║
                                  """))
-            if validar_telefono(telefono):
+            if validar_telefono(telefono) == True:
                 return telefono
     except ValueError:
         "Error consiguiendo el telefono"
@@ -80,7 +88,7 @@ def get_correo():
             correo = input("""
                            ║Ingrese el correo del contacto: ║
                            """)
-            if validar_correo(correo):
+            if validar_correo(correo) == True:
                 return correo
     except ValueError:
         "Error consiguiendo el correo"
@@ -90,9 +98,9 @@ def get_direccion():
     try:
         while True:
             direccion = input("""
-                              ║Ingrese el correo del contacto: ║
+                            ║Ingrese la direccion del contacto: ║
                               """)
-            if validar_direccion(direccion):
+            if validar_direccion(direccion) == True:
                 return direccion
     except ValueError:
         "Error consiguiendo el direccion"
