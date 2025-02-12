@@ -22,11 +22,28 @@ def menu_principal():
             case "1":
                 while True:
                     agregar_contactos()
+            case "2":
+                while True:
+                    editar_contactos()
+
+
+
+def editar_contactos():
+    while True:
+        print("""
+          ╔════════════════════════════════════════════════════════╗
+          ║                     EDITAR CONTACTO:                   ║
+          ║════════════════════════════════════════════════════════║   
+          ║                 1. Nombre                              ║
+          ║                 2. Numero de telefono                  ║
+          ║                 3. Salir                                       ║
+          ╚════════════════════════════════════════════════════════╝  
+                          """)
+        opc = int(input('Selecciona una opción (1-3):'))
+        return opc
             
-
-
-
-
+with open ("data/book.json", "r", encoding="utf-8" ) as file:
+    data = json.load(file)
 
 def agregar_contactos():
     while True:
@@ -39,3 +56,6 @@ def agregar_contactos():
         print("")
         
         
+
+
+
