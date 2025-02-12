@@ -1,0 +1,16 @@
+[
+
+    {
+        "nombre":"Pedro",
+        "telefono":1010101010,
+        "correo":"pedro@gmail.com",
+        "direccion":"casa de pedro"
+    },
+    {
+        "nombre":"Paco",
+        "telefono":1010101010,
+        "correo":"paco@gmail.com",
+        "direccion":"casa de paco"
+    }
+
+]
